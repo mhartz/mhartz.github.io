@@ -140,12 +140,17 @@ function setupScene() {
 	renderer.shadowMapType = THREE.PCFSoftShadowMap;
 	document.body.appendChild(renderer.domElement);
 	camera = new THREE.PerspectiveCamera(60, ratio, 1, 4000);
-	camera.position.set(500, 500, 500);
+	camera.position.set(500, 500, 100);
 	camera.lookAt(new THREE.Vector3(0, 0, 0));
 	controls = new THREE.OrbitControls( camera, renderer.domElement );
 	controls.enableDamping = true;
 	controls.dampingFactor = 0.25;
 	controls.maxPolarAngle = Math.PI/2;
+	controls.enableKeys = false;
+	controls.enablePan = false;
+	controls.autoRotate = true;
+	controls.autoRotateSpeed = 0.25;
+	controls.update();
 	stats = new Stats();
 	stats.domElement.style.position = 'absolute';
 	stats.domElement.style.top = '0px';
@@ -161,7 +166,7 @@ function setupScene() {
 			object.scale.z = 140;
 			scene.add(object);
 			object.position.set(50, 0, 50);
-			camera.position.set(500, 500, 500).add(object.position);
+			camera.position.set(500, 500, 100).add(object.position);
 			controls.target = object.position;
     },
     function (xhr) {
