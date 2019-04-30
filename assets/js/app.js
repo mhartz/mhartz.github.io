@@ -166,8 +166,8 @@ function setupScene() {
 			object.scale.z = 140;
 			scene.add(object);
 			object.position.set(50, 0, 50);
-			camera.position.set(500, 500, 100).add(object.position);
-			controls.target = object.position;
+			camera.position.set(500, 500, 100).add(object.position.clone());
+			controls.target = object.position.clone();
     },
     function (xhr) {
       console.log((xhr.loaded / xhr.total * 100) + '% loaded');
