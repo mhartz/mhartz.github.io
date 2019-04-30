@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body>
+    <ul class="controls">
+        <li>
+          <button id="info">Info</button>
+        </li>
+        <li>
+          <button id="reset">Generate</button>
+        </li>
+        <li>
+          <button id="options">Options</button>
+        </li>
+      </ul>
+      <div class="info module hidden">
+        <p>A procedurally generated city using threejs. Change some options and regenerate the city!</p>
+      </div>
+      <div class="options module hidden">
+        <section>
+          <h3>Map</h3>
+          <div class="row">
+            <div class="col col-label">
+              <label for="block_count">Grid Count</label>
+            </div>
+            <div class="col col-input">
+              <input type="number" name="block_count" id="block_count" min="1" max="50" value="10"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-label">
+              <label for="block_size">Grid Size</label>
+            </div>
+            <div class="col col-input">
+              <input type="number" name="block_size" id="block_size" min="10" max="300" value="100" step="10"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-label">
+              <label for="water_threshold">Water Threshold</label>
+            </div>
+            <div class="col col-input">
+              <input type="number" name="water_threshold" id="water_threshold" min="0.0" max="1.0" value="0.1" step="0.1"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-label">
+              <label for="tree_threshold">Park Threshold</label>
+            </div>
+            <div class="col col-input">
+              <input type="number" name="tree_threshold" id="tree_threshold" min="0.0" max="1.0" value="0.1" step="0.1"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-label">
+              <label for="noise_frequency">Noise Frequency</label>
+            </div>
+            <div class="col col-input">
+              <input type="number" name="noise_frequency" id="noise_frequency" min="0" max="50" value="8"/>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>Buildings</h3>
+          <div class="row">
+            <div class="col col-label">
+              <label for="build_min_h">Min Height</label>
+            </div>
+            <div class="col col-input">
+              <input type="number" name="build_min_h" id="build_min_h" min="5" max="1000" value="20"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-label">
+              <label for="build_max_h">Max Height</label>
+            </div>
+            <div class="col col-input">
+              <input type="number" name="build_max_h" id="build_max_h" min="5" max="1000" value="300"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-label">
+              <label for="subdiv">Subdivisions</label>
+            </div>
+            <div class="col col-input">
+              <input type="number" name="subdiv" id="subdiv" min="0" max="4" value="2"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-label">
+              <label for="build_exp">Height Exponent</label>
+            </div>
+            <div class="col col-input">
+              <input type="number" name="build_exp" id="build_exp" min="1" max="10" value="6"/>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>Other</h3>
+          <div class="row">
+            <div class="col col-label">
+              <label for="max_cars">Max Cars</label>
+            </div>
+            <div class="col col-input">
+              <input type="number" name="max_cars" id="max_cars" min="1" max="100" value="50"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-label">
+              <label for="preserve_seed">Preserve Seed</label>
+            </div>
+            <div class="col col-input">
+              <input type="checkbox" name="preserve_seed" id="preserve_seed"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-label">
+              <label for="debug">Debug</label>
+            </div>
+            <div class="col col-input">
+              <input type="checkbox" name="debug" id="debug"/>
+            </div>
+          </div>
+        </section>
+        <!--section
+        h3 Direct Url
+        input#url(type="text", readonly) 
+        
+        -->
+        <div class="row buttons">
+          <button id="default">Defaults</button><a class="button" id="url" target="_blank">City Permalink</a>
+        </div>
+      </div>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
+  <script src="assets/js/vendor/three.js"></script>
+  <script src="assets/js/vendor/orbit-controls.js"></script>
+  <script src="assets/js/vendor/objloader.js"></script>
+  <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+  <script src="https://cdn.rawgit.com/pieceoftoast/noisejs/master/perlin.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

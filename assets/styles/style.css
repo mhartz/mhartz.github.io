@@ -1,0 +1,119 @@
+*, *:before, *:after {
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helvetica;
+  background: #2b3437;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  color: #2b3437;
+}
+
+.controls {
+  list-style: none;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  right: 10px;
+  top: 10px;
+}
+
+.controls li {
+  display: inline-block;
+  margin-left: 3px;
+}
+
+button, a.button {
+  background-color: #6e858d;
+  transition: all 0.2s;
+  border-radius: 2px;
+  padding: 7px 10px;
+  font-size: 12px;
+  min-width: 80px;
+  cursor: pointer;
+  color: #2b3437;
+  border: 0;
+}
+button:hover, a.button:hover {
+  background: #8b9da3;
+}
+button:active, a.button:active {
+  background: #586A70;
+}
+
+.hidden {
+  display: none;
+}
+
+.module {
+  background: #6e858d;
+  position: absolute;
+  width: 255px;
+  padding: 15px;
+  top: 47px;
+  right: 10px;
+  max-height: 80%;
+  border-radius: 2px;
+  overflow: auto;
+}
+.module p {
+  margin: 0;
+}
+.module button, .module a.button {
+  text-decoration: none;
+  margin-right: 5px;
+  background: #2b3437;
+  color: #6e858d;
+}
+.module button:active, .module a.button:active {
+  background: #586A70;
+}
+.module section {
+  margin-bottom: 15px;
+}
+.module h3 {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.options p {
+  margin: 0 0 20px 0;
+}
+.options .row {
+  margin-bottom: 5px;
+}
+.options .row.buttons {
+  margin: 20px 0 0 0;
+}
+.options .col {
+  display: inline-block;
+}
+.options .col-label {
+  width: 68%;
+}
+.options .col-input {
+  width: 29%;
+}
+
+label {
+  font-size: 12px;
+}
+
+input, textarea {
+  color: #6e858d;
+  background: #2b3437;
+  padding: 5px 8px;
+  border-radius: 2px;
+  border: none;
+  width: 100%;
+}
+
+input[readonly] {
+  background: #6e858d;
+  color: #2b3437;
+  border: 1px solid #2b3437;
+}
