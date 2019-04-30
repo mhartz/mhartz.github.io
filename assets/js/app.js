@@ -73,7 +73,7 @@ city = {
 	//sidewalk width
 	inner_block_margin: 5,
 	//max building height
-	build_max_h: 300,
+	build_max_h: 150,
 	//min building height
 	build_min_h: 20,
 	//deviation for height within block
@@ -81,9 +81,9 @@ city = {
 	//exponent of height increase 
 	build_exp: 6,
 	//chance of blocks being water
-	water_threshold: 0.1, 
+	water_threshold: 0, 
 	//chance of block containg trees
-	tree_threshold: 0.2,
+	tree_threshold: 0,
 	//max trees per block
 	tree_max: 20,
 	//max bridges
@@ -93,7 +93,7 @@ city = {
 	//max cars at one time
 	car_max: 10,
 	//train max
-	train_max: 1,
+	train_max: 0,
 	//maximum car speed
 	car_speed_min: 2,
 	//minimum car speed
@@ -139,7 +139,7 @@ function setupScene() {
 	renderer.shadowMapEnabled = true;
 	renderer.shadowMapType = THREE.PCFSoftShadowMap;
 	document.body.appendChild(renderer.domElement);
-	camera = new THREE.PerspectiveCamera( 60, ratio, 1, 4000);
+	camera = new THREE.PerspectiveCamera(60, ratio, 1, 4000);
 	camera.position.set(500, 500, 500);
 	camera.lookAt(new THREE.Vector3(0, 0, 0));
 	controls = new THREE.OrbitControls( camera, renderer.domElement );
@@ -156,10 +156,13 @@ function setupScene() {
   loader.load(
     'assets/models/aegon-center.obj',
     function (object) {
-      object.scale.y = 100;
-      object.scale.x = 100;
-      object.scale.z = 100;
-      scene.add(object);
+      object.scale.y = 140;
+      object.scale.x = 140;
+			object.scale.z = 140;
+			scene.add(object);
+			object.position.set(50, 0, 50);
+			camera.position.set(500, 500, 500).add(object.position);
+			controls.target = object.position;
     },
     function (xhr) {
       console.log((xhr.loaded / xhr.total * 100) + '% loaded');
@@ -264,9 +267,13 @@ function setupBlocks(){
 				scene.add(curb);	
 				
 				//create buildings in debug mode the building color is mapped to the hightmap
-				if(hm > city.tree_threshold) { 
+				if(hm > city.tree_threshold) {
+					var xBlockMid = 1 + ((city.blocks_x - 1) - 1)/2;
+					var zBlockMid = 1 + ((city.blocks_z - 1) - 1)/2;
 					var building_color = DEBUG ? getGreyscaleColor(hm) : colors.BUILDING;
-					setupBuildings(x, z, inner, inner,  h, city.subdiv, building_color); 
+					if (!(xBlockMid === i && zBlockMid === j)) {
+						setupBuildings(x, z, inner, inner,  h, city.subdiv, building_color);
+					}
 				}
 				//create tree meshes
 				else{ setupPark(x, z, inner, inner); }
