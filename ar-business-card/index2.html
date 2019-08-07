@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>8th Wall Web: Portal</title>
+
+    <!-- We've included a slightly modified version of A-Frame, which fixes some polish concerns -->
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+
+    <script>
+      // This component gives the invisible hider walls the property they need
+      AFRAME.registerComponent('hider-material', {
+        init: function() {
+          const mesh = this.el.getObject3D('mesh')
+          mesh.material.colorWrite = false
+        },
+      })
+
+      // This component hides and shows certain elements as the camera moves
+      AFRAME.registerComponent('portal', {
+        schema: {
+          width: {default: 4},
+          height: {default: 6},
+          depth: {default: 1},
+        },
+        init: function(){
+          this.camera = document.getElementById('camera')
+          this.contents = document.getElementById('portal-contents')
+          this.walls = document.getElementById('hider-walls')
+          this.portalWall = document.getElementById('portal-wall')
+          this.portalWorld = document.getElementById('portal-world')
+          this.isInPortalSpace = false
+          this.wasOutside = true
+        },
+        tick: function() {
+          const position = this.camera.object3D.position
+
+          const isOutside = position.z  > this.data.depth / 2
+          const withinPortalBounds =
+            position.y < this.data.height && Math.abs(position.x) < this.data.width / 2
+
+          if (this.wasOutside != isOutside && withinPortalBounds) {
+            this.isInPortalSpace = !isOutside
+          }
+
+          this.contents.object3D.visible = this.isInPortalSpace || isOutside
+          this.walls.object3D.visible = !this.isInPortalSpace && isOutside
+          this.portalWall.object3D.visible = this.isInPortalSpace && !isOutside
+          this.portalWorld.object3D.visible = this.isInPortalSpace
+
+          this.wasOutside = isOutside
+        }
+      })
+
+    </script>
+
+  </head>
+  <body>
+    <a-scene
+      xrweb
+      portal
+      xrextras-almost-there
+      xrextras-loading
+      xrextras-runtime-error
+      xrextras-tap-recenter>
+
+      <!-- Hider walls -->
+      <a-entity id="hider-walls">
+        <a-box
+          scale="6 100 1"
+          position="0 57 0"
+          hider-material></a-box>
+        <a-box
+          scale="94 100 1"
+          position="-50 50 0"
+          hider-material></a-box>
+        <a-box
+          scale="94 100 1"
+          position="50 50 0"
+          hider-material></a-box>
+        <a-box
+          scale="200 100 1"
+          position="0 50 200"
+          hider-material></a-box>
+        <a-box
+          scale="200 1 201"
+          position="0 100 100"
+          hider-material></a-box>
+        <a-box
+          scale="200 1 199"
+          position="0 -0.5 100"
+          hider-material></a-box>
+        <a-box
+          scale="1 100 200"
+          position="-100 50 100"
+          hider-material></a-box>
+        <a-box
+          scale="1 100 200"
+          position="100 50 100"
+          hider-material></a-box>
+      </a-entity>
+
+      <a-entity id="portal-wall">
+        <a-plane
+          scale="4 6 1"
+          rotation="180 0 0"
+          position="0 3 0.5"
+          hider-material></a-plane>
+      </a-entity>
+
+      <a-entity id="portal-contents">
+
+          <a-box scale="0.5 1.5 0.5" position="0 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+
+        <a-sky src="bg.jpg"></a-sky> -->
+        <!-- <a-sphere
+          scale="200 1 100"
+          position="0 -0.5 -49.5"
+          src="bg.jpg"></a-sphere> -->
+      </a-entity>
+
+      <a-entity id="portal-world">
+        <a-box
+          scale="1 2 1"
+          position="0 -1 0"
+          color="blue"></a-box>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
