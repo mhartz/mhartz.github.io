@@ -17,26 +17,66 @@
       }
     });
 
+    // AFRAME.registerComponent('navigate-on-click', {
+    //   schema: {
+    //     url: {default: ''}
+    //   },
+
+    //   init: function () {
+    //     var data = this.data;
+    //     var el = this.el;
+
+    //     el.addEventListener('click', function () {
+    //       window.location.href = data.url;
+    //     });
+    //   }
+    // });
+
     document.addEventListener('click', function() {
       var plane = document.getElementById('plane-animate');
       var tower = document.getElementById('tower-animate');
+      var ovaregroup = document.getElementById('ovaregroup-animate');
+      var scoppechio = document.getElementById('scoppechio-animate');
+      var badge = document.getElementById('badge-animate');
+      var three = document.getElementById('three-animate');
+      var civitas = document.getElementById('civitas-animate');
 
-      plane.setAttribute('animation', 'property: width; from: 0; to: 2.3; dur: 1000; easing: linear');
+      plane.setAttribute('visible', 'true');
+      plane.setAttribute('animation', 'property: width; from: 0; to: 2.1; dur: 1000; easing: linear');
 
       setTimeout(function() {
-        tower.setAttribute('animation', "property: position; to: 0 1.1 0; dur: 1000; easing: linear");
+        tower.setAttribute('animation', "property: position; to: 0 0.77 0; dur: 1000; easing: linear");
       }, 1000);
+
+      setTimeout(function() {
+
+        ovaregroup.setAttribute('visible', 'true');
+        scoppechio.setAttribute('visible', 'true');
+        badge.setAttribute('visible', 'true');
+        three.setAttribute('visible', 'true');
+        civitas.setAttribute('visible', 'true');
+
+        ovaregroup.setAttribute('animation', "property: position; to: 0 -0.01 -1.1; dur: 1000; easing: easeInOutElastic");
+        scoppechio.setAttribute('animation', "property: position; to: -2 -0.01 1.1; dur: 1000; easing: easeInOutElastic");
+        badge.setAttribute('animation', "property: position; to: -0.5 -0.01 1.1; dur: 1000; easing: easeInOutElastic");
+        three.setAttribute('animation', "property: position; to: 0.5 -0.01 1.1; dur: 1000; easing: easeInOutElastic");
+        civitas.setAttribute('animation', "property: position; to: 1.5 -0.01 1.1; dur: 1000; easing: easeInOutElastic");
+      }, 2000);
     });
   </script>
 </head>
 <body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded arjs>
-    <a-marker type='pattern' url='./assets/patterns/arjs.patt'>
+  <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+    <a-marker type='barcode' value='5'>
       <a-entity position='0 -1 0' cloak></a-entity>
-      <a-plane width='0' height='1.3' rotation='270 0 0' id='plane-animate' position='0 0 0' color='#000'></a-plane>
+      <a-plane rotation='270 0 0' id='plane-animate' position='0 0 0' height='1.2' color='#000' visible='false'></a-plane>
       <a-box scale="0.5 1.5 0.5" id='tower-animate' position="0 -1.1 0" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-image navigate-on-click="url: http://ovaregroup.com/" src='./assets/images/ovare-group.png' id='ovaregroup-animate' position='0 -0.1 0' rotation="-90 0 0" width='1.92' height='0.275' visible='false'></a-image>
+      <a-image navigate-on-click="url: http://scoppechio.com/" src='./assets/images/scoppechio_ovare_logo_desktop.png' id='scoppechio-animate' position='0 -0.1 0' rotation="-90 0 0" width='1.3' height='0.331' visible='false'></a-image>
+      <a-image navigate-on-click="url: http://badgedesignstudio.com" src='./assets/images/badge_logo_word_desktop.png' id='badge-animate' position='0 -0.1 0' rotation="-90 0 0" width='1' height='0.366' visible='false'></a-image>
+      <a-image navigate-on-click="url: http://www.thethreeproductions.com/" src='./assets/images/the3-ovare-logo-vertical.png' id='three-animate' position='0 -0.1 0' rotation="-90 0 0" width='0.5' height='0.753' visible='false'></a-image>
+      <a-image navigate-on-click="url: https://www.civitasmarketing.com" src='./assets/images/5a728f9674b6cc0001692297_CN-Logo-White+Yellow.png' id='civitas-animate' position='0 -0.1 0' rotation="-90 0 0" width='1' height='0.238' visible='false'></a-image>
     </a-marker>
-
     <a-entity camera></a-entity>
   </a-scene>
 </body>
