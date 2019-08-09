@@ -66,8 +66,8 @@
   </script>
 </head>
 <body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-    <a-marker type='barcode' value='5'>
+  <a-scene embedded arjs>
+    <a-marker type='pattern' url='./assets/patterns/pattern-new-o.patt'>
       <a-entity position='0 -1 0' cloak></a-entity>
       <a-plane rotation='270 0 0' id='plane-animate' position='0 0 0' height='1.2' color='#000' visible='false'></a-plane>
       <a-box scale="0.5 1.5 0.5" id='tower-animate' position="0 -1.1 0" rotation="0 45 0" color="#4CC3D9"></a-box>
