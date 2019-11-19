@@ -75,7 +75,7 @@
 				var overlay = document.getElementById( 'overlay' );
 				overlay.remove();
 
-				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
+				camera = new THREE.PerspectiveCamera( 75, elementWidth / elementHeight, 1, 1100 );
 
 				controls = new DeviceOrientationControls( camera );
 
