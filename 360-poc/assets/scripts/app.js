@@ -27,7 +27,7 @@ function init() {
   geometry.scale(-1, 1, 1); // invert geometry
 
   var material = new THREE.MeshBasicMaterial({
-    map: new THREE.TextureLoader().load('assets/images/StainlessSteelPano.jpg')
+    map: new THREE.TextureLoader().load('assets/images/360Portal_new_5.jpg')
   });
 
   var mesh = new THREE.Mesh(geometry, material);
