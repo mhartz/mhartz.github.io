@@ -6,8 +6,6 @@ window.addEventListener("devicemotion", function(event){
     this.alert("Gyro Present");
 });
 
-alert
-
 var camera, scene, renderer, controls;
 init();
 animate();
