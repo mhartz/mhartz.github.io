@@ -1,11 +1,6 @@
 import * as THREE from './vendor/three.module.js';
 import { DeviceOrientationControls } from './vendor/DeviceOrientationControls.js';
 
-window.addEventListener("devicemotion", function(event){
-  if(event.rotationRate.alpha || event.rotationRate.beta || event.rotationRate.gamma)
-    this.alert("Gyro Present");
-});
-
 var camera, scene, renderer, controls;
 init();
 animate();
