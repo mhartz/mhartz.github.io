@@ -1,13 +1,6 @@
 import * as THREE from './vendor/three.module.js';
 import { DeviceOrientationControls } from './vendor/DeviceOrientationControls.js';
 
-if (window.DeviceOrientationEvent || window.DeviceMotionEvent) {
-  alert("Device orit");
-}
-else {
-  alert("not");
-}
-
 var camera, scene, renderer, controls;
 var isUserInteracting = false,
 				onMouseDownMouseX = 0, onMouseDownMouseY = 0,
