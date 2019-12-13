@@ -2,10 +2,15 @@ import * as THREE from './vendor/three.module.js';
 import { DeviceOrientationControls } from './vendor/DeviceOrientationControls.js';
 
 var camera, scene, renderer, controls;
-init();
-animate();
+var startButton = document.getElementById( 'startButton' );
+startButton.addEventListener( 'click', function () {
+  init();
+  animate();
+}, false );
 
 function init() {
+  var overlay = document.getElementById( 'overlay' );
+  overlay.remove();
   camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
   controls = new DeviceOrientationControls( camera );
   scene = new THREE.Scene();
