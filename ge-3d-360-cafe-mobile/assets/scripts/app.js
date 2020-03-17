@@ -18,9 +18,10 @@ function init() {
   // invert the geometry on the x-axis so that all of the faces point inward
   geometry.scale( - 1, 1, 1 );
   var material = new THREE.MeshBasicMaterial( {
-    map: new THREE.TextureLoader().load( 'assets/images/109612_GEA_SmallPackaging_WhiteKitchen360_01.png' )
+    map: new THREE.TextureLoader().load( 'assets/images/CafeSmallAppliances000.jpg' )
   } );
   var mesh = new THREE.Mesh( geometry, material );
+  mesh.rotation.y = 9;
   scene.add( mesh );
   var helperGeometry = new THREE.BoxBufferGeometry( 100, 100, 100, 4, 4, 4 );
   var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xff00ff, wireframe: false } );

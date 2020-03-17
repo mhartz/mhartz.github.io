@@ -27,10 +27,11 @@ function init() {
   geometry.scale(-1, 1, 1); // invert geometry
 
   var material = new THREE.MeshBasicMaterial({
-    map: new THREE.TextureLoader().load('assets/images/109612_GEA_SmallPackaging_WhiteKitchen360_01.png')
+    map: new THREE.TextureLoader().load('assets/images/CafeSmallAppliances000.jpg')
   });
 
   var mesh = new THREE.Mesh(geometry, material);
+  mesh.rotation.y = 9;
   scene.add(mesh);
 
   /*
