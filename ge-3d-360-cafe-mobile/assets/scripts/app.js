@@ -21,7 +21,7 @@ function init() {
     map: new THREE.TextureLoader().load( 'assets/images/CafeSmallAppliances000.jpg' )
   } );
   var mesh = new THREE.Mesh( geometry, material );
-  mesh.rotation.y = 11;
+  mesh.rotation.y = 10.5;
   scene.add( mesh );
   var helperGeometry = new THREE.BoxBufferGeometry( 100, 100, 100, 4, 4, 4 );
   var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xff00ff, wireframe: false } );
