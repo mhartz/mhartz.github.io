@@ -31,7 +31,7 @@ function init() {
   });
 
   var mesh = new THREE.Mesh(geometry, material);
-  mesh.rotation.y = 9;
+  mesh.rotation.y = 9.45;
   scene.add(mesh);
 
   /*
