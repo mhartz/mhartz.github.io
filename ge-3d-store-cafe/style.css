@@ -1,0 +1,18 @@
+.usdz-button {
+  width: 100%;
+}
+
+.the-image {
+  width: 100%;
+}
+
+.model-viewer {
+  width: 100%;
+  height: 500px;
+}
+
+@media screen and (min-width: 768px) {
+  .usdz-button {
+    display: none;
+  }
+}
