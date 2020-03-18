@@ -21,7 +21,7 @@ function init() {
     map: new THREE.TextureLoader().load( 'assets/images/109612_GEA_SmallPackaging_WhiteKitchen360_02.png' )
   } );
   var mesh = new THREE.Mesh( geometry, material );
-  mesh.rotation.y = 11.5;
+  mesh.rotation.y = 11;
   scene.add( mesh );
   var helperGeometry = new THREE.BoxBufferGeometry( 100, 100, 100, 4, 4, 4 );
   var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xff00ff, wireframe: false } );
