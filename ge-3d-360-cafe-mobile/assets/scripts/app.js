@@ -18,7 +18,7 @@ function init() {
   // invert the geometry on the x-axis so that all of the faces point inward
   geometry.scale( - 1, 1, 1 );
   var material = new THREE.MeshBasicMaterial( {
-    map: new THREE.TextureLoader().load( 'assets/images/109612_GEA_SmallPackaging_WhiteKitchen360_02.png' )
+    map: new THREE.TextureLoader().load( 'assets/images/109612_GEA_SmallPackaging_WhiteKitchen360_04.jpg')
   } );
   var mesh = new THREE.Mesh( geometry, material );
   mesh.rotation.y = 11;
