@@ -1,0 +1,27 @@
+model-viewer {
+  width: 500px;
+  height: 700px;
+}
+
+button{
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: none;
+  background-color: blue;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+button[slot="hotspot-door"]{
+  --min-hotspot-opacity: 0;
+  background-color: blue;
+  opacity: 0.8;
+}
+
+button[slot="hotspot-drawer"]{
+  --min-hotspot-opacity: 0;
+  background-color: blue;
+  opacity: 0.8;
+}
